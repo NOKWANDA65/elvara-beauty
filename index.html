@@ -1,0 +1,292 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f5f0e8">
+    <title>Elvara Beauty | Beauty is an Experience</title>
+    <meta name="description" content="Discover luxury hair, nail, lash and beauty treatments at Elvara Beauty. Book your appointment today.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="header">
+    <a href="#" class="logo" onclick="showPage('home')">
+        elvara<span>.</span>
+        <small>BEAUTY STUDIO</small>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button>
+
+    <nav class="navigation" id="navigation">
+        <a href="#" onclick="showPage('home')">Home</a>
+        <a href="#services" onclick="showPage('home')">Services</a>
+        <a href="#team" onclick="showPage('home')">Our Team</a>
+        <a href="#" onclick="showPage('mybookings')">My Bookings</a>
+        <button class="nav-book" onclick="showPage('booking')">Book Appointment</button>
+    </nav>
+</header>
+
+<main>
+
+    <!-- HOME PAGE -->
+    <section id="homePage" class="page active">
+
+        <section class="hero">
+            <div class="hero-content">
+                <p class="eyebrow">WELCOME TO ELVARA BEAUTY</p>
+                <h1>Beauty is not a luxury.<br><em>It is an experience.</em></h1>
+                <p class="hero-description">
+                    Discover a world of elegance, self-care and beauty.
+                    Your moment to feel extraordinary begins here.
+                </p>
+                <div class="hero-actions">
+                    <button class="primary-btn" onclick="showPage('booking')">
+                        Book Your Experience →
+                    </button>
+                    <a href="#services" class="text-link">Explore Services</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1200"
+                     alt="Luxury beauty salon interior">
+                <div class="image-caption">
+                    <span>THE ELVARA EXPERIENCE</span>
+                    <p>Elegance in every detail.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="intro-section">
+            <p class="eyebrow">THE ART OF SELF-CARE</p>
+            <h2>A little time for yourself.<br><em>A lasting feeling of beauty.</em></h2>
+            <p>From beautifully styled hair to perfectly finished nails,
+                every service is designed around you.</p>
+        </section>
+
+        <!-- SERVICES -->
+        <section class="section" id="services">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">OUR EXPERTISE</p>
+                    <h2>Explore our services</h2>
+                </div>
+                <button class="outline-btn" onclick="showPage('booking')">
+                    Book a service →
+                </button>
+            </div>
+
+            <div class="category-filters" id="categoryFilters">
+                <button class="filter-btn active" data-category="All">All Services</button>
+                <button class="filter-btn" data-category="Hair">Hair</button>
+                <button class="filter-btn" data-category="Nails">Nails</button>
+                <button class="filter-btn" data-category="Lashes">Lashes</button>
+                <button class="filter-btn" data-category="Beauty">Beauty</button>
+            </div>
+
+            <div class="service-grid" id="serviceGrid"></div>
+        </section>
+
+        <!-- TEAM -->
+        <section class="team-section" id="team">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">THE PEOPLE BEHIND THE BEAUTY</p>
+                    <h2>Meet our specialists</h2>
+                </div>
+            </div>
+            <div class="team-grid" id="teamGrid"></div>
+        </section>
+
+        <section class="quote-section">
+            <p class="eyebrow">YOUR BEAUTY. YOUR MOMENT.</p>
+            <h2>"Confidence begins with how you feel."</h2>
+            <button class="primary-btn" onclick="showPage('booking')">
+                Reserve Your Appointment
+            </button>
+        </section>
+
+    </section>
+
+    <!-- BOOKING PAGE -->
+    <section id="bookingPage" class="page inner-page">
+        <div class="page-heading">
+            <p class="eyebrow">YOUR ELVARA EXPERIENCE</p>
+            <h1>Book an appointment.</h1>
+            <p>Choose your treatment, select your specialist and reserve your time.</p>
+        </div>
+
+        <form id="bookingForm" class="booking-form">
+            <div class="form-section">
+                <h3>01. Your details</h3>
+                <div class="form-grid">
+                    <label>Full name
+                        <input type="text" id="clientName" required placeholder="Your full name">
+                    </label>
+                    <label>Email address
+                        <input type="email" id="clientEmail" required placeholder="you@example.com">
+                    </label>
+                    <label>Phone number
+                        <input type="tel" id="clientPhone" required placeholder="e.g. 071 234 5678">
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>02. Select your service</h3>
+                <label>Beauty treatment
+                    <select id="serviceSelect" required>
+                        <option value="">Choose a service</option>
+                    </select>
+                </label>
+                <p class="service-information" id="serviceInformation">
+                    Your service duration and price will appear here.
+                </p>
+            </div>
+
+            <div class="form-section">
+                <h3>03. Choose your specialist</h3>
+                <label>Preferred specialist
+                    <select id="staffSelect" required>
+                        <option value="">Choose a specialist</option>
+                    </select>
+                </label>
+            </div>
+
+            <div class="form-section">
+                <h3>04. Select your appointment</h3>
+                <div class="form-grid">
+                    <label>Date
+                        <input type="date" id="bookingDate" required>
+                    </label>
+                    <label>Time
+                        <select id="bookingTime" required>
+                            <option value="">Choose a time</option>
+                        </select>
+                    </label>
+                </div>
+                <label>Additional notes
+                    <textarea id="bookingNotes" rows="3"
+                    placeholder="Any special requests?"></textarea>
+                </label>
+            </div>
+
+            <div class="booking-summary" id="bookingSummary">
+                <h3>Your booking summary</h3>
+                <p>Select a service to see your booking details.</p>
+            </div>
+
+            <button type="submit" class="primary-btn full-btn">
+                Confirm Booking →
+            </button>
+            <p class="form-note">Demo application: appointments are saved in this browser.</p>
+        </form>
+    </section>
+
+    <!-- MY BOOKINGS -->
+    <section id="mybookingsPage" class="page inner-page">
+        <div class="page-heading">
+            <p class="eyebrow">YOUR APPOINTMENTS</p>
+            <h1>My bookings.</h1>
+            <p>Enter your booking email to view your appointments.</p>
+        </div>
+
+        <form id="lookupForm" class="lookup-form">
+            <input type="email" id="lookupEmail" required placeholder="Enter your booking email">
+            <button class="primary-btn" type="submit">Find Bookings</button>
+        </form>
+
+        <div id="myBookingResults" class="booking-results"></div>
+    </section>
+
+    <!-- ADMIN DASHBOARD -->
+    <section id="adminPage" class="page inner-page">
+        <div class="admin-header">
+            <div>
+                <p class="eyebrow">ELVARA BEAUTY MANAGEMENT</p>
+                <h1>Admin dashboard.</h1>
+                <p>Monitor appointments and salon activity.</p>
+            </div>
+            <span class="admin-tag">DEMO ADMIN</span>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span>Total bookings</span>
+                <strong id="totalBookings">0</strong>
+            </div>
+            <div class="stat-card">
+                <span>Pending</span>
+                <strong id="pendingBookings">0</strong>
+            </div>
+            <div class="stat-card">
+                <span>Confirmed</span>
+                <strong id="confirmedBookings">0</strong>
+            </div>
+            <div class="stat-card">
+                <span>Estimated revenue</span>
+                <strong id="estimatedRevenue">R0</strong>
+            </div>
+        </div>
+
+        <div class="admin-table-wrapper">
+            <div class="table-heading">
+                <h2>Appointment management</h2>
+                <button class="outline-btn" onclick="exportBookings()">Export CSV ↓</button>
+            </div>
+
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Reference</th>
+                            <th>Client</th>
+                            <th>Service</th>
+                            <th>Specialist</th>
+                            <th>Date & Time</th>
+                            <th>Price</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminBookings">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <button class="outline-btn danger-btn" onclick="resetDemoData()">
+            Reset Demo Data
+        </button>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <div>
+        <a href="#" class="logo footer-logo" onclick="showPage('home')">
+            elvara<span>.</span>
+            <small>BEAUTY STUDIO</small>
+        </a>
+        <p>Beauty is an experience. Experience Elvara.</p>
+    </div>
+
+    <div class="footer-links">
+        <a href="#" onclick="showPage('home')">Home</a>
+        <a href="#" onclick="showPage('booking')">Bookings</a>
+        <a href="#" onclick="showPage('mybookings')">My appointments</a>
+        <a href="#" onclick="showPage('admin')">Admin</a>
+    </div>
+
+    <p class="copyright">© <span id="year"></span> Elvara Beauty. All rights reserved.</p>
+</footer>
+
+<div id="notification" class="notification" role="status" aria-live="polite"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
